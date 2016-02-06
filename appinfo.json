@@ -1,0 +1,20 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "warren.samyukta@gmail.com",
+    "enableMultiJS": true,
+    "longName": "Meachum",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "3",
+    "shortName": "Meachum",
+    "uuid": "6779951f-aa8d-4157-8ec2-7ebe3f072790",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
