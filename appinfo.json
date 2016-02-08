@@ -10,7 +10,7 @@
     "resources": {
         "media": [
             {
-                "file": "images/wifey",
+                "file": "images/image0",
                 "name": "WIFEY_PIC",
                 "targetPlatforms": [
                     "basalt"
