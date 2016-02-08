@@ -2,6 +2,8 @@
 
 static Window *main_window;
 static TextLayer *time_layer;
+static BitmapLayer *bitmap_layer;
+static GBitmap *pic_bitmap;
 
 static void update_time() {
   
@@ -16,30 +18,36 @@ static void update_time() {
 }
 
 static void main_window_load(Window *window) {
-  
   Layer  *root_layer = window_get_root_layer(window);
   GRect layer_bounds = layer_get_bounds(root_layer);
   
-  time_layer = text_layer_create(
-    GRect(0, PBL_IF_ROUND_ELSE(58,52), layer_bounds.size.w, layer_bounds.size.h));
+  pic_bitmap = gbitmap_create_with_resource(RESOURCE_ID_WIFEY_PIC);
+  bitmap_layer = bitmap_layer_create(GRect(5, 5, 48, 48));
+  bitmap_layer_set_bitmap(bitmap_layer, pic_bitmap);
   
-  text_layer_set_background_color(time_layer, GColorClear);
-  text_layer_set_text_color(time_layer, GColorBlack);
-  text_layer_set_font(time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28 ));
-  text_layer_set_text_alignment(time_layer, GTextAlignmentCenter);
-  text_layer_set_overflow_mode(time_layer, GTextOverflowModeWordWrap);
+//   time_layer = text_layer_create(
+//     GRect(0, PBL_IF_ROUND_ELSE(58,52), layer_bounds.size.w, layer_bounds.size.h));
+  
+//   text_layer_set_background_color(time_layer, GColorClear);
+//   text_layer_set_text_color(time_layer, GColorBlack);
+//   text_layer_set_font(time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28 ));
+//   text_layer_set_text_alignment(time_layer, GTextAlignmentCenter);
+//   text_layer_set_overflow_mode(time_layer, GTextOverflowModeWordWrap);
 
-  layer_add_child(root_layer, text_layer_get_layer(time_layer));
+  layer_add_child(root_layer, bitmap_layer_get_layer(bitmap_layer));
+  //layer_add_child(bitmap_layer_get_layer(bitmap_layer), text_layer_get_layer(time_layer));
   
-  update_time();
+  //update_time();
 }
 
 static void main_window_unload(Window *window) {
-  	text_layer_destroy(time_layer);  
+  text_layer_destroy(time_layer);
+  gbitmap_destroy(pic_bitmap);
+  bitmap_layer_destroy(bitmap_layer);
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
-  update_time();
+  //update_time();
 }
 
 void handle_init(void) {

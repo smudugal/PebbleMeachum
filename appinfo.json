@@ -8,10 +8,22 @@
     "longName": "Meachum",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/wifey",
+                "name": "WIFEY_PIC",
+                "targetPlatforms": [
+                    "basalt"
+                ],
+                "type": "png"
+            }
+        ]
     },
     "sdkVersion": "3",
     "shortName": "Meachum",
+    "targetPlatforms": [
+        "basalt"
+    ],
     "uuid": "6779951f-aa8d-4157-8ec2-7ebe3f072790",
     "versionLabel": "1.0",
     "watchapp": {
