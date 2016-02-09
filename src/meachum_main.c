@@ -22,12 +22,12 @@ static void main_window_load(Window *window) {
   GRect layer_bounds = layer_get_bounds(root_layer);
   
   pic_bitmap = gbitmap_create_with_resource(RESOURCE_ID_WIFEY_PIC);
-  bitmap_layer = bitmap_layer_create(GRect(35, 10, 72, 72));
+  bitmap_layer = bitmap_layer_create(GRect(PBL_IF_ROUND_ELSE(52, 35), 10, 72, 72));
   bitmap_layer_set_bitmap(bitmap_layer, pic_bitmap);
 
   
   time_layer = text_layer_create(
-    GRect(0, PBL_IF_ROUND_ELSE(58,80), layer_bounds.size.w, layer_bounds.size.h));
+    GRect(0, PBL_IF_ROUND_ELSE(80,80), layer_bounds.size.w, layer_bounds.size.h));
   
   text_layer_set_background_color(time_layer, GColorClear);
   text_layer_set_text_color(time_layer, GColorBlack);
