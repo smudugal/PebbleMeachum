@@ -1,6 +1,8 @@
 #include <pebble.h>
 #include "battery.h"
 
+#define BATTERY_METER_THICKNESS 4
+
 static Layer *battery_layer;
 static int battery_level;
 
@@ -23,7 +25,7 @@ static void update_battery(Layer *layer, GContext *context) {
 void battery_load(Layer *root_layer) {
   GRect layer_bounds = layer_get_bounds(root_layer);
 
-  battery_layer = layer_create(GRect( 0, layer_bounds.size.h - 4, layer_bounds.size.w, 3));
+  battery_layer = layer_create(GRect( 0, layer_bounds.size.h - 4, layer_bounds.size.w, BATTERY_METER_THICKNESS));
   layer_set_update_proc(battery_layer, update_battery);
   layer_add_child(root_layer, battery_layer);
   
